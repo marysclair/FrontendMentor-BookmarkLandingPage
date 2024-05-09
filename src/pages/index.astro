@@ -1,0 +1,78 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.jsx'
+import TabSection from '../components/TabSection.jsx';
+import CardExtension from '../components/CardExtension';
+import FAQSection from '../components/FAQSection';
+import FormFooter from '../components/FormFooter';
+import Footer from '../components/Footer';
+---
+
+<Layout title="Welcome to Astro.">
+	<div class="px-[12%] w-full mb-40">
+		<Nav />
+		<main>
+			<div class="grid grid-cols-2 gap-40 min-h-[75vh]">
+				<div class="mt-40">
+					<h1 class="text-6xl font-semibold text-justify mb-8">A Simple Bookmark Manager</h1>
+					<p class="text-lg text-slate-400">A clean and simple interface to organize your favourite websites. Open a new browser tab and see your sites load instantly. Try it for free.</p>
+					<div class="flex gap-6 mt-8">
+						<button class="text-white border-[3px] text-lg font-medium px-6 py-2 rounded-lg border-primary bg-primary hover:text-primary hover:bg-white shadow-md">
+							Get it on Chrome
+						  </button>
+						<button class="text-gray-600 border-[3px] hover:border-gray-600 bg-gray-200 hover:bg-white text-lg font-medium px-6 py-2 rounded-lg shadow-lg">
+							Get it on Firefox
+						  </button>
+						
+					</div>
+				</div>
+				<div>
+					<div class="absolute h-[45%] w-[34%] ml-[11.4%] mt-[13%] z-1000 bg-primary rounded-l-full">
+					</div>
+					<img 
+						class="absolute mt-20"
+						src="/illustration-hero.svg"
+						width="700"
+						alt=""
+					>
+				</div>
+			</div>
+			<div class="mt-16 min-h-[110vh]">
+				<div class="mx-auto w-2/5 text-center">
+					<h2 class="text-4xl font-semibold mb-6">Features</h2>
+					<p class="text-lg text-slate-400">Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access them on the go.</p>
+				</div>
+				<TabSection client:visible />
+			</div>
+			<div class="my-16">
+				<div class="mx-auto w-2/5 text-center mb-12">
+					<h2 class="text-4xl font-semibold mb-6">Download the extension</h2>
+					<p class="text-lg text-slate-400">We've got more browsers in the pipeline. Please do let us know if you've got a favourite you'd like us to prioritize.</p>
+				</div>
+				<div class="grid grid-cols-3 gap-12 mx-32 pb-16">
+					<div>
+						<CardExtension extensionInfo={{title: "Add to Chrome", paragraph: "Minimum version 62", imagePath: "/logo-chrome.svg"}} />
+					</div>
+					<div class="mt-16">
+						<CardExtension extensionInfo={{title: "Add to Firefox", paragraph: "Minimum version 55", imagePath: "/logo-firefox.svg"}} />
+					</div>
+					<div class="mt-32">
+						<CardExtension extensionInfo={{title: "Add to Opera", paragraph: "Minimum version 46", imagePath: "/logo-opera.svg"}} />
+					</div>
+				</div>
+			</div>
+			<div class="my-16">
+				<div class="mx-auto w-2/5 text-center mb-16">
+					<h2 class="text-4xl font-semibold mb-6">Frequently Asked Questions</h2>
+					<p class="text-lg text-slate-400">Here are some of our FAQs. If you have any other questions you'd like answered please feel free to email using.</p>
+				</div>
+				<FAQSection client:visible />
+				<div class="flex items-center justify-center mt-16">
+					<button class="bg-primary text-white py-3 px-8 rounded-lg shadow-md"> More info </button>
+				</div>
+			</div>
+		</main>
+	</div>
+	<FormFooter />
+	<Footer />
+</Layout>
